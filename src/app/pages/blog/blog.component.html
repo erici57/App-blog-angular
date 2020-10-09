@@ -1,0 +1,34 @@
+<h1>Blog App</h1>
+<hr>
+
+<div class="row">
+    <div class="col mb-2 text-right">
+
+        <button routerLink="/post/nuevo" class="btn btn-primary">
+            <i class="fa fa-plus"></i>
+            Crear Post
+        </button>
+
+    </div>
+</div>
+
+
+
+<div *ngFor="let post of postService.posts" class="row mt-2">
+    <div class="col-10">
+        <h3>{{ post.name }}</h3>
+        <p> {{ post.description }} </p>
+        <hr>
+    </div>
+    <div class="col-2">
+
+        <button (click)="editarPost(post)" [routerLink]="['/post', post._id]" class="btn btn-info mr-1">
+            <i class="fa fa-pen"></i>
+        </button>
+
+        <button (click)="eliminar(post._id)" class="btn btn-danger">
+            <i class="fa fa-trash"></i>
+        </button>
+    </div>
+
+</div>

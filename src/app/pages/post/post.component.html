@@ -1,0 +1,47 @@
+<h1>Post</h1>
+<hr>
+
+<div class="row">
+    <div class="col text-right">
+
+        <button routerLink="/blog" class="btn btn-danger">
+            <i class="fa fa-arrow-left"></i>
+            Regresar
+        </button>
+
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col">
+
+        <form (ngSubmit)="guardar(f)" #f="ngForm">
+
+
+            <input type="hidden" [(ngModel)]="postService.postSeleccionado._id" name="_id">
+
+
+            <div class="form-group">
+                <label>Title</label>
+                <input type="text" class="form-control" [(ngModel)]="postService.postSeleccionado.name" name="name" required placeholder="Title">
+            </div>
+
+            <div class="form-group">
+                <label>Description</label>
+                <textarea class="form-control" rows="5" [(ngModel)]="postService.postSeleccionado.description" name="description" placeholder="Description..."></textarea>
+            </div>
+
+
+
+            <div class="form-group text-center">
+                <button class="btn btn-primary w-25" type="submit">
+                    <i class="fa fa-save"></i>
+                    Guardar
+                </button>
+            </div>
+
+        </form>
+
+    </div>
+</div>
